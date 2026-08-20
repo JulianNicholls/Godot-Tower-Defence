@@ -5,17 +5,27 @@
 [ext_resource type="PackedScene" uid="uid://d2a3hu3dfrwao" path="res://Models/tile-straight.glb" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://2mgc5utunxqh" path="res://Models/tile-spawn-end-round.glb" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c21bi32v7ifpc" path="res://Models/tile-corner-round.glb" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dr0n8cwy4stvo" path="res://Models/tile-crystal.glb" id="6_choun"]
+[ext_resource type="PackedScene" uid="uid://c3trnernt0wrs" path="res://Models/tile-crossing.glb" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://crcoyfe8mmbot" path="res://Models/enemy-ufo-a.glb" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dphyiyxd2x3wi" path="res://Models/tile-tree.glb" id="7_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://y4d4irwkwyk7" path="res://Models/tile-rock.glb" id="8_eb6dy"]
 
 [node name="Main" type="Node3D" unique_id=1962097954]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8447762, 0)
 script = ExtResource("1_o5qli")
 tile_start = ExtResource("2_tbgi4")
 tile_end = ExtResource("2_tbgi4")
 tile_straight = ExtResource("2_sugp2")
 tile_corner = ExtResource("3_jyhfs")
-tile_empty = ExtResource("2_0wfyh")
+tile_crossing = ExtResource("6_tefeu")
+tile_enemy = ExtResource("6_ya4ey")
+tile_empty = Array[PackedScene]([ExtResource("6_choun"), ExtResource("7_ya4ey"), ExtResource("8_eb6dy"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh")])
 map_length = 24
 map_height = 14
+min_path_size = 42
+max_path_size = 60
+min_loops = 2
+max_loops = 3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=574564605]
 transform = Transform3D(0.92520237, 0.07540589, -0.3719066, 0.07736535, 0.92199165, 0.37940225, 0.37150395, -0.37979656, 0.847195, -2.4726994, 4.047463, -2.5413082)

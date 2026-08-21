@@ -56,9 +56,9 @@ func loop_count() -> int:
 func path() -> Array[Vector2i]:
 	return _path
 
-func _add_loops():
+func _add_loops() -> void:
 	# See if we can add any loops
-	var loops_generated:bool = true
+	var loops_generated := true
 	
 	# Keep generating loops until you can't any more!
 	while loops_generated:
@@ -134,7 +134,7 @@ func _is_loop_option(index: int) -> Array[Vector2i]:
 		and _tile_loc_free(x, y+3) and _tile_loc_free(x-1, y+3) and _tile_loc_free(x-2, y+3)
 		and _tile_loc_free(x-1, y-1) and _tile_loc_free(x-2, y-1)
 		and _tile_loc_free(x-1, y) and _tile_loc_free(x-2, y) and _tile_loc_free(x-3, y)
-		and _tile_loc_free(x+1, y+1) and _tile_loc_free(x, y+1) and _tile_loc_free(x-2, y+1)
+		and _tile_loc_free(x+1, y+1) and _tile_loc_free(x, y+1) and _tile_loc_free(x-2, y+1) 
 		and _tile_loc_free(x-3, y+1)
 		and _tile_loc_free(x+1, y+2) and _tile_loc_free(x, y+2) and _tile_loc_free(x-1, y+2)
 		and _tile_loc_free(x-2, y+2) and _tile_loc_free(x-3, y+2)):
@@ -159,6 +159,7 @@ func _tile_loc_free(x: int, y: int) -> bool:
 ## Returns the Vector2i path tile at the given index.
 func path_tile(index: int) -> Vector2i:
 	return _path[index]
+
 
 
 func _generate_debug_path() -> Array[Vector2i]:

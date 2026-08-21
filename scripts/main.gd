@@ -8,14 +8,14 @@ extends Node3D
 @export var tile_enemy: PackedScene
 @export var tile_empty: Array[PackedScene]
 
-@export var map_length: int = 16
-@export var map_height: int = 10
+@export var map_length: int = 24
+@export var map_height: int = 14
 
-@export var min_path_size := 35
-@export var max_path_size := 42
+@export var min_path_size: int = 45
+@export var max_path_size: int = 65
 
-@export var min_loops := 1
-@export var max_loops := 4
+@export var min_loops: int = 2
+@export var max_loops: int = 4
 
 var _pg: PathGenerator
 
@@ -33,7 +33,7 @@ func _add_curve_point(c3d: Curve3D, v3: Vector3) -> bool:
 	return true
 
 func _follow_grid():
-	var box = tile_enemy.instantiate()
+	var box := tile_enemy.instantiate()
 	
 	var c3d := Curve3D.new()
 	
@@ -65,11 +65,11 @@ func _complete_grid() -> void:
 				tile.global_rotation_degrees = Vector3(0, randi_range(0, 3) * 90.0, 0)
 		
 func _display_path() -> void:
-	var path: Array[Vector2i] = _pg.generate_path(true)
+	var path := _pg.generate_path(true)
 	
 	# Ensure we get a decent path
-	while path.size() < min_path_size or path.size() > max_path_size or _pg.loop_count() < min_loops or _pg.loop_count() > max_loops:
-		print("Size: ", path.size(), ", Loops: ", _pg.loop_count())
+	while (path.size() < min_path_size or path.size() > max_path_size 
+		or _pg.loop_count() < min_loops or _pg.loop_count() > max_loops):
 		path = _pg.generate_path(true)
 
 	print("Final Size: ", path.size(), ", Loops: ", _pg.loop_count())
@@ -77,39 +77,37 @@ func _display_path() -> void:
 	for i in range(_pg.path().size()):
 		var score := _pg.tile_score(i)
 		var tile: Node3D
-		var rotation := Vector3.ZERO
+		var trotation := Vector3.ZERO
 
 		if score == 2:
 			tile = tile_start.instantiate()
-			rotation = Vector3(0, 90.0, 0)
+			trotation = Vector3(0, 90.0, 0)
 		if score == 8:
 			tile = tile_start.instantiate()
-			rotation = Vector3(0, -90.0, 0)
+			trotation = Vector3(0, -90.0, 0)
 		elif score == 10:
 			tile = tile_straight.instantiate()
-			rotation = Vector3(0, 90.0, 0)
+			trotation = Vector3(0, 90.0, 0)
 		elif score == 1 or score == 4 or score == 5:
 			tile = tile_straight.instantiate()
 		elif score == 6:
 			tile = tile_corner.instantiate()
 		elif score == 12:
 			tile = tile_corner.instantiate()
-			rotation = Vector3(0, -90.0, 0)
+			trotation = Vector3(0, -90.0, 0)
 		elif score == 3:
 			tile = tile_corner.instantiate()
-			rotation = Vector3(0, 90.0, 0)
+			trotation = Vector3(0, 90.0, 0)
 		elif score == 9:
 			tile = tile_corner.instantiate()
-			rotation = Vector3(0, 180.0, 0)
+			trotation = Vector3(0, 180.0, 0)
 		elif score == 15:
 			tile = tile_crossing.instantiate()
-			rotation = Vector3(0,0,0)
 			
-
 		add_child(tile)
 		var ptile = _pg.path_tile(i)
 		tile.global_position = Vector3(ptile.x, 0, ptile.y)
-		tile.global_rotation_degrees = rotation
+		tile.global_rotation_degrees = trotation
 		
 #func _process(delta: float) -> void:
 	#pass

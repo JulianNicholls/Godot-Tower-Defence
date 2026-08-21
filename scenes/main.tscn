@@ -19,13 +19,7 @@ tile_straight = ExtResource("2_sugp2")
 tile_corner = ExtResource("3_jyhfs")
 tile_crossing = ExtResource("6_tefeu")
 tile_enemy = ExtResource("6_ya4ey")
-tile_empty = Array[PackedScene]([ExtResource("6_choun"), ExtResource("7_ya4ey"), ExtResource("8_eb6dy"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh")])
-map_length = 24
-map_height = 14
-min_path_size = 42
-max_path_size = 60
-min_loops = 2
-max_loops = 3
+tile_empty = Array[PackedScene]([ExtResource("6_choun"), ExtResource("7_ya4ey"), ExtResource("8_eb6dy"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=574564605]
 transform = Transform3D(0.92520237, 0.07540589, -0.3719066, 0.07736535, 0.92199165, 0.37940225, 0.37150395, -0.37979656, 0.847195, -2.4726994, 4.047463, -2.5413082)

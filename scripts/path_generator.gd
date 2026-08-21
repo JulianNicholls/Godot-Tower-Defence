@@ -1,22 +1,28 @@
-extends Object
+extends Node
 
-class_name PathGenerator
+var config: PGConfig = preload("res://resources/basic_path_config.res")
 
-var _grid_length: int
 var _grid_height: int
+var _grid_length: int
+
 var _loop_count: int
 
 var _path: Array[Vector2i]
 
-func _init(length: int, height: int) -> void:
-	_grid_length = length
-	_grid_height = height
-	
-func generate_path(add_loops: bool) -> Array[Vector2i]:
+func _init() -> void:
+	_grid_height = config.map_height
+	_grid_length = config.map_length
+
+	# Ensure we get a decent path
+	while (_path.size() < config.min_path_size or _path.size() > config.max_path_size 
+		or _loop_count < config.min_loops or _loop_count > config.max_loops):
+		generate_path()	
+		
+func generate_path() -> void:
+	randomize()
 	_path.clear()
 	_loop_count = 0
-	randomize()
-	
+		
 	var x := 0
 	var y := int(_grid_height / 2.0)
 	
@@ -33,11 +39,9 @@ func generate_path(add_loops: bool) -> Array[Vector2i]:
 		elif choice == 2 && y > 1  and not _path.has(Vector2i(x, y - 1)):
 			y -= 1
 		
-	if add_loops:
+	if config.add_loops:
 		_add_loops()
 
-	return _path
-	
 func tile_score(index: int) -> int: 
 	var x := _path[index].x
 	var y := _path[index].y

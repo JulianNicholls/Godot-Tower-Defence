@@ -15,6 +15,10 @@ run/main_scene="uid://goj6lywjy4ll"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+pgInstance="*uid://byec281noj0y"
+
 [display]
 
 window/size/viewport_width=1280

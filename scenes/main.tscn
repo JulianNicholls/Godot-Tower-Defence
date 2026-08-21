@@ -20,6 +20,12 @@ tile_corner = ExtResource("3_jyhfs")
 tile_crossing = ExtResource("6_tefeu")
 tile_enemy = ExtResource("6_ya4ey")
 tile_empty = Array[PackedScene]([ExtResource("6_choun"), ExtResource("7_ya4ey"), ExtResource("8_eb6dy"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh")])
+map_length = null
+map_height = null
+min_path_size = null
+max_path_size = null
+min_loops = null
+max_loops = null
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1629462954]
 transform = Transform3D(1, 0, 0, 0, 0.2756374, 0.9612617, 0, -0.9612617, 0.2756374, 11.293053, 30.066208, 15.881241)

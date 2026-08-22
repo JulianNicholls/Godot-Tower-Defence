@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bmykt31wi468p"]
+
+[ext_resource type="Script" uid="uid://tva4on5g0bb6" path="res://scripts/basic_enemy.gd" id="1_wm70f"]
+[ext_resource type="PackedScene" uid="uid://crcoyfe8mmbot" path="res://Models/enemy-ufo-a.glb" id="2_ve544"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_qhw0p"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_n365g"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_cij6a"]
+
+[sub_resource type="Curve3D" id="Curve3D_wm70f"]
+
+[node name="BasicEnemy" type="Node3D" unique_id=1180477278]
+script = ExtResource("1_wm70f")
+
+[node name="EnemyStateChart" type="Node" parent="." unique_id=1263034865]
+script = ExtResource("3_qhw0p")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="CompoundState" type="Node" parent="EnemyStateChart" unique_id=904705804]
+script = ExtResource("4_n365g")
+initial_state = NodePath("Spawning")
+
+[node name="Spawning" type="Node" parent="EnemyStateChart/CompoundState" unique_id=1040865571]
+script = ExtResource("5_cij6a")
+
+[node name="Travelling" type="Node" parent="EnemyStateChart/CompoundState" unique_id=724941421]
+script = ExtResource("5_cij6a")
+
+[node name="Attacking" type="Node" parent="EnemyStateChart/CompoundState" unique_id=404049904]
+script = ExtResource("5_cij6a")
+
+[node name="Despawning" type="Node" parent="EnemyStateChart/CompoundState" unique_id=1686347572]
+script = ExtResource("5_cij6a")
+
+[node name="Dying" type="Node" parent="EnemyStateChart/CompoundState" unique_id=1763091809]
+script = ExtResource("5_cij6a")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1745157467]
+curve = SubResource("Curve3D_wm70f")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=197787400]
+loop = false
+
+[node name="enemy-ufo-a2" parent="Path3D/PathFollow3D" unique_id=2092496989 instance=ExtResource("2_ve544")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/Spawning" to="." method="_on_spawning_state_entered"]

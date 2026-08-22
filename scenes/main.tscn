@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0n8cwy4stvo" path="res://Models/tile-crystal.glb" id="6_choun"]
 [ext_resource type="PackedScene" uid="uid://c3trnernt0wrs" path="res://Models/tile-crossing.glb" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://crcoyfe8mmbot" path="res://Models/enemy-ufo-a.glb" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://bmykt31wi468p" path="res://scenes/basic_enemy.tscn" id="7_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dphyiyxd2x3wi" path="res://Models/tile-tree.glb" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://y4d4irwkwyk7" path="res://Models/tile-rock.glb" id="8_eb6dy"]
 
@@ -19,13 +20,8 @@ tile_straight = ExtResource("2_sugp2")
 tile_corner = ExtResource("3_jyhfs")
 tile_crossing = ExtResource("6_tefeu")
 tile_enemy = ExtResource("6_ya4ey")
+basic_enemy = ExtResource("7_eb6dy")
 tile_empty = Array[PackedScene]([ExtResource("6_choun"), ExtResource("7_ya4ey"), ExtResource("8_eb6dy"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh"), ExtResource("2_0wfyh")])
-map_length = null
-map_height = null
-min_path_size = null
-max_path_size = null
-min_loops = null
-max_loops = null
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1629462954]
 transform = Transform3D(1, 0, 0, 0, 0.2756374, 0.9612617, 0, -0.9612617, 0.2756374, 11.293053, 30.066208, 15.881241)

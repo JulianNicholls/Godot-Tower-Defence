@@ -17,7 +17,6 @@ func _ready() -> void:
 	_display_path()
 	_complete_grid()
 	
-	await get_tree().create_timer(2).timeout
 	_follow_grid()
 	
 func _display_path() -> void:
@@ -70,33 +69,11 @@ func _complete_grid() -> void:
 				tile.global_rotation_degrees = Vector3(0, randi_range(0, 3) * 90.0, 0)
 		
 func _follow_grid():
-	var enemy := basic_enemy.instantiate()
-	add_child(enemy)
-	
-	#var c3d := Curve3D.new()
-	#
-	#for element in pgInstance.path():
-		#c3d.add_point(Vector3(element.x, 0.4, element.y))
-#
-	#var p3d := Path3D.new()
-	#add_child(p3d)
-	#p3d.curve = c3d
-	#
-	#var pf3d := PathFollow3D.new()
-	#p3d.add_child(pf3d)
-	#pf3d.add_child(enemy)
-	#
-	#var curr_distance: float = 0.0
-	#
-	#while curr_distance < c3d.point_count - 1:
-		#curr_distance += 0.1
-		#pf3d.progress = clamp(curr_distance, 0, c3d.point_count - 1.00001)
-		#await get_tree().create_timer(0.01).timeout
+	for i in 20:
+		await get_tree().create_timer(1.2).timeout
 
-func _add_curve_point(c3d: Curve3D, v3: Vector3) -> bool:
-	c3d.add_point(v3)
-
-	return true
+		var enemy := basic_enemy.instantiate()
+		add_child(enemy)
 
 #func _process(delta: float) -> void:
 	#pass

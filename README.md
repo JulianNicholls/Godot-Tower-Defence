@@ -6,5 +6,5 @@ I'm following the [Godot](https://godotengine.org/) Tower Defence Tutorial from 
 ## Assets
 
 The game assets I used are from [here](https://kenney.nl/assets/tower-defense-kit).
-They were created by [Kenney.nl](www.kenney.nl) where there are many more graphics, tools, games and starter kits.
+They were created by [Kenney.nl](https://www.kenney.nl) where there are many more graphics, tools, games and starter kits.
 

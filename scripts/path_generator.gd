@@ -30,7 +30,7 @@ func generate_path() -> void:
 		if not _path.has(Vector2i(x, y)):
 			_path.append(Vector2i(x, y))
 			
-		var choice : int = randi_range(0, 2)
+		var choice := randi_range(0, 2)
 		
 		if choice == 0 or x % 2 == 0 or x == _grid_length - 1:
 			x += 1
@@ -78,15 +78,15 @@ func _add_loops() -> void:
 				for j in range(loop.size()):
 					_path.insert(i + 1 + j, loop[j])
 
-## For a given index in the path, evaluate whether a loop can be generated
-## around it.
+# For a given index in the path, evaluate whether a loop can be generated
+# around it.
 func _is_loop_option(index: int) -> Array[Vector2i]:
 	var x := _path[index].x
 	var y := _path[index].y
 	var return_path: Array[Vector2i]
 
 	#Yellow
-	if (x < _grid_length-1 and y > 1
+	if (x < _grid_length - 1 and y > 1
 		and _tile_loc_free(x, y-3) and _tile_loc_free(x+1, y-3) and _tile_loc_free(x+2, y-3)
 		and _tile_loc_free(x-1, y-2) and _tile_loc_free(x, y-2) and _tile_loc_free(x+1, y-2)
 		and _tile_loc_free(x+2, y-2) and _tile_loc_free(x+3, y-2)
@@ -118,7 +118,7 @@ func _is_loop_option(index: int) -> Array[Vector2i]:
 		_loop_count += 1
 		return_path.append(Vector2i(x,y))
 	#Red
-	elif (x < _grid_length-1 and y < _grid_height-2
+	elif (x < _grid_length - 1 and y < _grid_height - 2
 		and _tile_loc_free(x, y+3) and _tile_loc_free(x+1, y+3) and _tile_loc_free(x+2, y+3)
 		and _tile_loc_free(x+1, y-1) and _tile_loc_free(x+2, y-1)
 		and _tile_loc_free(x+1, y) and _tile_loc_free(x+2, y) and _tile_loc_free(x+3, y)
@@ -134,7 +134,7 @@ func _is_loop_option(index: int) -> Array[Vector2i]:
 		_loop_count += 1
 		return_path.append(Vector2i(x,y))
 	# Brown
-	elif (x > 2 and y < _grid_height-2
+	elif (x > 2 and y < _grid_height - 2
 		and _tile_loc_free(x, y+3) and _tile_loc_free(x-1, y+3) and _tile_loc_free(x-2, y+3)
 		and _tile_loc_free(x-1, y-1) and _tile_loc_free(x-2, y-1)
 		and _tile_loc_free(x-1, y) and _tile_loc_free(x-2, y) and _tile_loc_free(x-3, y)
@@ -152,20 +152,21 @@ func _is_loop_option(index: int) -> Array[Vector2i]:
 		
 	return return_path
 	
-## Returns true if there is a path tile at the x,y coordinate.
+# Returns true if there is a path tile at the x,y coordinate.
 func _tile_loc_taken(x: int, y: int) -> bool:
 	return _path.has(Vector2i(x,y))
 	
-## Returns true if there is no path tile at the x,y coordinate.
+# Returns true if there is no path tile at the x,y coordinate.
 func _tile_loc_free(x: int, y: int) -> bool:
 	return not _tile_loc_taken(x,y)
 
-## Returns the Vector2i path tile at the given index.
+# Returns the Vector2i path tile at the given index.
 func path_tile(index: int) -> Vector2i:
 	return _path[index]
 
 
 
+# Generate the bounding rectangle
 func _generate_debug_path() -> Array[Vector2i]:
 	_path.clear()
 

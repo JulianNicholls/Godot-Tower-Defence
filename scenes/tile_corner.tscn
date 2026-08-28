@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c21bi32v7ifpc" path="res://Models/tile-corner-round.glb" id="1_gj2qh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rgm4q"]
+size = Vector3(1, 0.2, 1)
 
 [node name="tile_corner" type="Area3D" unique_id=1429248843 groups=["path"]]
 

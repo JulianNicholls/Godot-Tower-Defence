@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c3trnernt0wrs" path="res://Models/tile-crossing.glb" id="1_tgw8u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rgm4q"]
+size = Vector3(1, 0.2, 1)
 
 [node name="tile_crossing" type="Area3D" unique_id=1821172968 groups=["path"]]
 

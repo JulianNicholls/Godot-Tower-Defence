@@ -21,12 +21,12 @@ tile_straight = ExtResource("4_a8y0u")
 tile_corner = ExtResource("5_jkv2x")
 tile_crossing = ExtResource("6_jbj1t")
 tile_enemy = ExtResource("6_ya4ey")
-basic_enemy = ExtResource("7_eb6dy")
 tile_empty = Array[PackedScene]([ExtResource("9_muem4"), ExtResource("10_dp3eg"), ExtResource("11_0ld40"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt")])
+basic_enemy = ExtResource("7_eb6dy")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1629462954]
+[node name="MainCamera" type="Camera3D" parent="." unique_id=1629462954]
 transform = Transform3D(1, 0, 0, 0, 0.2756374, 0.9612617, 0, -0.9612617, 0.2756374, 11.293053, 30.066208, 15.881241)
 fov = 26.9
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1019027591]
+[node name="MainLight" type="DirectionalLight3D" parent="." unique_id=1019027591]
 transform = Transform3D(-0.5233917, -0.48716316, -0.6990946, -0.5691091, -0.41076076, 0.7123135, -0.63417345, 0.77068007, -0.062260196, 324.29163, -1435.4358, -199.87048)

@@ -10,7 +10,7 @@ extends Node3D
 
 @export var basic_enemy: PackedScene
 
-@onready var cam := $Camera3D
+@onready var cam := $MainCamera
 
 var RAYCAST_LENGTH := 100.0
 
@@ -90,7 +90,7 @@ func _physics_process(_delta: float):
 		query.collide_with_areas = true
 		var ray_result := space_state.intersect_ray(query)
 		
-		if ray_result.size() >0:
+		if ray_result.size() > 0:
 			#print(ray_result)
 			var co: CollisionObject3D = ray_result.get("collider")
 			print(co.get_groups())

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://58yk3ypay7me"]
+
+[ext_resource type="PackedScene" uid="uid://ddy0ote73r3jb" path="res://Models/tower-round-base.glb" id="1_el7wl"]
+[ext_resource type="PackedScene" uid="uid://brhqeneen6jxc" path="res://Models/weapon-cannon.glb" id="2_485p4"]
+
+[node name="Turret" type="Node3D" unique_id=1189838292]
+
+[node name="tower-round-base2" parent="." unique_id=364753811 instance=ExtResource("1_el7wl")]
+
+[node name="weapon-cannon2" parent="." unique_id=694870797 instance=ExtResource("2_485p4")]

@@ -21,7 +21,7 @@ tile_straight = ExtResource("4_a8y0u")
 tile_corner = ExtResource("5_jkv2x")
 tile_crossing = ExtResource("6_jbj1t")
 tile_enemy = ExtResource("6_ya4ey")
-tile_empty = Array[PackedScene]([ExtResource("9_muem4"), ExtResource("10_dp3eg"), ExtResource("11_0ld40"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt")])
+tile_empty = Array[PackedScene]([ExtResource("9_muem4"), ExtResource("10_dp3eg"), ExtResource("11_0ld40"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt"), ExtResource("12_gqmmt")])
 basic_enemy = ExtResource("7_eb6dy")
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1629462954]

@@ -29,7 +29,7 @@ func _on_travelling_state_processing(delta: float) -> void:
 		$EnemyStateChart.send_event("to_despawning")
 
 func _on_despawning_state_entered() -> void:
-	print("despawning")
+	#print("despawning")
 	$AnimationPlayer.play("despawn")
 	await $AnimationPlayer.animation_finished
 	

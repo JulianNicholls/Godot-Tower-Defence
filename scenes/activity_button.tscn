@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b4rm1wt6jvr65"]
+
+[ext_resource type="Script" uid="uid://c4pmt0ddl2eou" path="res://scripts/activity_button.gd" id="1_mi6dp"]
+[ext_resource type="Texture2D" uid="uid://cxh047q8euu0l" path="res://images/cannon01a.png" id="2_jqt32"]
+
+[node name="ActivityButton" type="Button" unique_id=396886987]
+custom_minimum_size = Vector2(96, 96)
+custom_maximum_size = Vector2(96, 96)
+offset_right = 46.0
+offset_bottom = 43.0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_mi6dp")
+button_icon = ExtResource("2_jqt32")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

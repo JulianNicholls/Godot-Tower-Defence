@@ -12,6 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://dxjtfs7h5pdwd" path="res://scenes/tile_tree.tscn" id="10_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://mlo16vqlajv4" path="res://scenes/tile_rock.tscn" id="11_0ld40"]
 [ext_resource type="PackedScene" uid="uid://dk3ot86m3stwo" path="res://scenes/tile_empty.tscn" id="12_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://b4rm1wt6jvr65" path="res://scenes/activity_button.tscn" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://bw7qjsw1xnlvj" path="res://scenes/turret_1.tscn" id="14_a8y0u"]
+
+[sub_resource type="Environment" id="Environment_rgm4q"]
+background_mode = 1
+background_color = Color(0.24569999, 0.36739507, 0.63, 1)
+adjustment_enabled = true
+adjustment_contrast = 1.11
 
 [node name="Main" type="Node3D" unique_id=1962097954]
 script = ExtResource("1_o5qli")
@@ -30,3 +38,28 @@ fov = 26.9
 
 [node name="MainLight" type="DirectionalLight3D" parent="." unique_id=1019027591]
 transform = Transform3D(-0.5233917, -0.48716316, -0.6990946, -0.5691091, -0.41076076, 0.7123135, -0.63417345, 0.77068007, -0.062260196, 324.29163, -1435.4358, -199.87048)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=38584712]
+environment = SubResource("Environment_rgm4q")
+
+[node name="Control" type="Control" parent="." unique_id=431970381]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1278.0
+offset_bottom = 725.0
+size_flags_vertical = 8
+
+[node name="Button" parent="Control" unique_id=396886987 instance=ExtResource("13_trceg")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.75
+offset_top = -74.0
+offset_right = 31.75
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+button_draggable = ExtResource("14_a8y0u")

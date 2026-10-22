@@ -79,21 +79,21 @@ func _follow_grid():
 		add_child(enemy)
 
 # When the board is clicked on, return what sort of tile is clicked via raycasting
-func _physics_process(_delta: float):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		var space_state := get_world_3d().direct_space_state
-		var mouse_pos := get_viewport().get_mouse_position()
-		var origin: Vector3 = cam.project_ray_origin(mouse_pos)
-		var end: Vector3 = origin + cam.project_ray_normal(mouse_pos) * RAYCAST_LENGTH
-		
-		var query = PhysicsRayQueryParameters3D.create(origin, end)
-		query.collide_with_areas = true
-		var ray_result := space_state.intersect_ray(query)
-		
-		if ray_result.size() > 0:
-			#print(ray_result)
-			var co: CollisionObject3D = ray_result.get("collider")
-			print(co.get_groups())
+#func _physics_process(_delta: float):
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		#var space_state := get_world_3d().direct_space_state
+		#var mouse_pos := get_viewport().get_mouse_position()
+		#var origin: Vector3 = cam.project_ray_origin(mouse_pos)
+		#var end: Vector3 = origin + cam.project_ray_normal(mouse_pos) * RAYCAST_LENGTH
+		#
+		#var query = PhysicsRayQueryParameters3D.create(origin, end)
+		#query.collide_with_areas = true
+		#var ray_result := space_state.intersect_ray(query)
+		#
+		#if ray_result.size() > 0:
+			##print(ray_result)
+			#var co: CollisionObject3D = ray_result.get("collider")
+			#print(co.get_groups())
 		
 #func _process(delta: float) -> void:
 	#pass

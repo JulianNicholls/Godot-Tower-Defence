@@ -12,7 +12,7 @@ extends Node3D
 
 @onready var cam := $MainCamera
 
-var RAYCAST_LENGTH := 100.0
+const RAYCAST_LENGTH := 100.0
 
 var config: PGConfig = preload("res://resources/basic_path_config.res")
 

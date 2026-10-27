@@ -19,7 +19,7 @@ func _ready():
 	_draggable = button_draggable.instantiate()
 	add_child(_draggable)
 	_draggable.visible = false
-
+	_draggable.set_patrolling(false)
 	_camera = get_viewport().get_camera_3d()
 	
 ## Drag
@@ -51,19 +51,22 @@ func _physics_process(_delta: float) -> void:
 		
 		if ray_result.size() > 0:
 			var co: CollisionObject3D = ray_result.get("collider")
-			var group := co.get_groups()[0]
 			
-			_draggable.visible = true
-			_draggable.global_position = Vector3(co.global_position.x, 0.2, co.global_position.z)
-			
-			if group != "tile_empty":
-				_is_valid_location = false
-				_set_child_mesh_error(_draggable)
-			else:
-				_is_valid_location = true
-				_last_valid_location = _draggable.global_position
-				_clear_child_mesh_error(_draggable)
+			if(co.get_groups().size() > 0):
+				print(co.get_groups())
+				var group := co.get_groups()[0]
 				
+				_draggable.visible = true
+				_draggable.global_position = Vector3(co.global_position.x, 0.2, co.global_position.z)
+				
+				if group != "tile_empty":
+					_is_valid_location = false
+					_set_child_mesh_error(_draggable)
+				else:
+					_is_valid_location = true
+					_last_valid_location = _draggable.global_position
+					_clear_child_mesh_error(_draggable)
+					
 		else:
 			_draggable.visible = false
 

@@ -72,7 +72,7 @@ func _complete_grid() -> void:
 				tile.global_rotation_degrees = Vector3(0, randi_range(0, 3) * 90.0, 0)
 		
 func _follow_grid():
-	for i in 20:
+	for i in 2:
 		await get_tree().create_timer(1.2).timeout
 
 		var enemy := basic_enemy.instantiate()
